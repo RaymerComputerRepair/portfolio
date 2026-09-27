@@ -184,7 +184,138 @@ echo "Template $VM_ID ready."</pre>
                                       │ Domain Controller, DNS, DHCP  │
                                       └───────────────────────────────┘
     </div>
-        
+
+    <div class="image-grid">
+                <div class="image-card">
+                    <img src="chromebook-hardware.jpg" alt="Dell Chromebook Bench Setup">
+                    <div class="caption">Firmware flashing & write-protect screw removal</div>
+                </div>
+                <div class="image-card">
+                    <img src="chromebook-fastfetch.png" alt="Fastfetch terminal screenshot on Dell Chromebook">
+                    <div class="caption">Native Linux OS verification via Fastfetch</div>
+                </div>
+            </div>
+
+<div class="image-grid">
+                <div class="image-card">
+                    <img src="toshiba-teardown.jpg" alt="Toshiba A665 Teardown">
+                    <div class="caption">Motherboard overhaul & thermal repaste</div>
+                </div>
+                <div class="image-card">
+                    <img src="toshiba-neofetch.png" alt="Neofetch terminal screenshot on Toshiba Satellite">
+                    <div class="caption">System restoration verified via Neofetch</div>
+                </div>
+            </div>
+
+    <!-- Project 4: Dell Chromebook 11 3180 Linux Transformation -->
+    <div class="project-card">
+        <div class="project-header">
+            <h2 class="project-title">4. Dell Chromebook 11 3180 — Coreboot/SeaBIOS Linux Conversion</h2>
+            <div class="tags">
+                <span class="tag">Linux OS</span>
+                <span class="tag">Firmware Flashing</span>
+                <span class="tag">Hardware Recycling</span>
+            </div>
+        </div>
+        <div class="project-body">
+            <div class="project-section">
+                <h4>Overview & Problem</h4>
+                <p>Converted an End-of-Life (EOL) Dell Chromebook 11 (3180) into a lightweight, fully functional Linux workstation by removing ChromeOS write-protection hardware locks and flashing custom UEFI/SeaBIOS firmware.</p>
+            </div>
+
+            <div class="image-grid">
+                <div class="image-card">
+                    <img src="chromebook-bench.jpg" alt="Dell Chromebook Bench Setup">
+                    <div class="caption">Firmware flashing & write-protect screw removal</div>
+                </div>
+                <div class="image-card">
+                    <img src="chromebook-linux.jpg" alt="Linux Running on Dell Chromebook">
+                    <div class="caption">Custom Linux desktop environment booted & verified</div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h4>Technical Execution</h4>
+                <pre>
+1. Disassembled chassis to disable hardware Write-Protect (WP) screw/circuit.
+2. Booted ChromeOS Developer Mode & executed MrChromebox custom coreboot script.
+3. Flashed full UEFI ROM to replace restricted ChromeOS bootloader.
+4. Installed lightweight Linux distribution; optimized storage on embedded eMMC.
+5. Configured power management, Wi-Fi drivers, and audio modules for 100% hardware support.</pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project 5: Toshiba Satellite A665 Diagnostics & Overhaul -->
+    <div class="project-card">
+        <div class="project-header">
+            <h2 class="project-title">5. Toshiba Satellite A665 System Restoration & Diagnostics</h2>
+            <div class="tags">
+                <span class="tag">Laptop Diagnostics</span>
+                <span class="tag">Thermal Management</span>
+                <span class="tag">Hardware Repair</span>
+            </div>
+        </div>
+        <div class="project-body">
+            <div class="project-section">
+                <h4>Overview & Problem</h4>
+                <p>Diagnosed intermittent thermal shutdowns, power rail instabilities, and hardware glitches on a legacy Toshiba Satellite A665 laptop, restoring it for stable lab and diagnostic use.</p>
+            </div>
+
+            <div class="image-grid">
+                <div class="image-card">
+                    <img src="toshiba-teardown.jpg" alt="Toshiba A665 Teardown">
+                    <div class="caption">Motherboard cleaning, thermal paste replacement & fan overhaul</div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h4>Technical Execution</h4>
+                <pre>
+1. Complete chassis tear-down and motherboard extraction for deep cleaning.
+2. Removed degraded factory thermal pads; applied Arctic MX-6 high-performance compound.
+3. Tested power rail delivery across DC jack and charging IC components.
+4. Resolved Wi-Fi sensor switch toggling glitches and updated system BIOS.
+5. Completed stress tests (Prime95/MemTest86) to verify thermals and RAM stability under load.</pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project 6: Custom ESP32 Microcontroller Modifications -->
+    <div class="project-card">
+        <div class="project-header">
+            <h2 class="project-title">6. Custom ESP32 / ESP32-CAM Embedded Hardware Projects</h2>
+            <div class="tags">
+                <span class="tag">IoT / Microcontrollers</span>
+                <span class="tag">ESP32</span>
+                <span class="tag">Embedded C++</span>
+                <span class="tag">Custom Firmware</span>
+            </div>
+        </div>
+        <div class="project-body">
+            <div class="project-section">
+                <h4>Overview & Problem</h4>
+                <p>Modified open-source ESP32 and ESP32-CAM firmware to build custom network monitoring, isolated camera feeds, and physical sensor telemetry nodes tailored to homelab security requirements.</p>
+            </div>
+
+            <div class="image-grid">
+                <div class="image-card">
+                    <img src="esp32-cam-setup.jpg" alt="ESP32 CAM Hardware">
+                    <div class="caption">ESP32-CAM module wired with custom power regulation</div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h4>Code Modification & Optimization Highlights</h4>
+                <pre>
+* Streamlined HTTP video stream buffer allocation to prevent ESP32 memory panics.
+* Implemented static IP binding and Wi-Fi reconnect loops for headless 24/7 reliability.
+* Configured local authentication headers to secure video feeds on isolated lab subnets.
+* Integrated GPIO relay control routines triggered via REST API endpoints.</pre>
+            </div>
+        </div>
+    </div>
+    
     <!-- Project 3: ESP32 Security Node -->
     <div class="project-card">
         <div class="project-header">
