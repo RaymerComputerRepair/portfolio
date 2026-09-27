@@ -153,7 +153,38 @@ echo "Template $VM_ID ready."</pre>
             </div>
         </div>
     </div>
-
+<--! Visual Topology Diagram Layout -->
+    <div class="project-card">
+    [ WAN / ISP Router ]
+                                         │
+                                   192.168.10.1/24
+                                         │
+                         ┌───────────────┴───────────────┐
+                         │   Physical NIC (eth0)         │
+                         └───────────────┬───────────────┘
+                                         │
+                     ┌───────────────────┴───────────────────┐
+                     │   Proxmox VE Host (Dell OptiPlex)    │
+                     │   Host Management IP: 192.168.10.x   │
+                     └───────────────────┬───────────────────┘
+                                         │
+                   ┌─────────────────────┴─────────────────────┐
+                   │  Virtual Bridge 0 (vmbr0) - LAN / Mgmt    │
+                   └───────┬───────────────────────────┬───────┘
+                           │                           │
+          ┌────────────────┴──────────────┐   ┌────────┴──────────────────────┐
+          │ LXC: Pi-hole DNS Sinkhole     │   │ VM: Ubuntu Server (Template)  │
+          │ IP: 192.168.10.53             │   │ Static IP / DHCP              │
+          │ Port: 53 (DNS), 80 (Web UI)   │   │ Services: Docker, Local LLM   │
+          └───────────────────────────────┘   └───────────────────────────────┘
+                                                       │
+                                      ┌────────────────┴──────────────┐
+                                      │ VM: Windows Server Lab        │
+                                      │ Services: Active Directory,   │
+                                      │ Domain Controller, DNS, DHCP  │
+                                      └───────────────────────────────┘
+    </div>
+        
     <!-- Project 3: ESP32 Security Node -->
     <div class="project-card">
         <div class="project-header">
