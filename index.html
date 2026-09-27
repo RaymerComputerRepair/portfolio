@@ -43,7 +43,7 @@
         .image-card img { width: 100%; height: 180px; object-fit: cover; display: block; }
         .image-card .caption { font-size: 0.8rem; color: var(--text-muted); padding: 0.5rem; text-align: center; }
 
-        /* Code Blocks */
+        /* Code & Diagram Blocks */
         pre { background-color: var(--code-bg); border: 1px solid var(--border); padding: 1rem; border-radius: 6px; overflow-x: auto; font-family: "Courier New", Courier, monospace; font-size: 0.85rem; color: #a5f3fc; }
         
         footer { text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); }
@@ -61,7 +61,7 @@
         <div class="contact-links">
             <a href="mailto:expert1991x@gmail.com">Email Me</a>
             <a href="https://www.linkedin.com/in/mike-d-i-98a430379" target="_blank">LinkedIn</a>
-            <a href="https://github.com/yourusername" target="_blank">GitHub Profile</a>
+            <a href="https://github.com/RaymerComputerRepair" target="_blank">GitHub Profile</a>
         </div>
     </header>
 
@@ -81,7 +81,6 @@
                 <p>Diagnosed and restored an industrial control board suffering from damaged power delivery traces and passive component failure without access to manufacturer schematics.</p>
             </div>
             
-            <!-- Photo Grid -->
             <div class="image-grid">
                 <div class="image-card">
                     <img src="https://via.placeholder.com/400x250?text=Trace+Inspection" alt="Inspection">
@@ -106,7 +105,7 @@
         </div>
     </div>
 
-    <!-- Project 2: Proxmox Homelab -->
+    <!-- Project 2: Proxmox Homelab & Topology -->
     <div class="project-card">
         <div class="project-header">
             <h2 class="project-title">2. Proxmox VE Homelab & Automated VM Deployment</h2>
@@ -135,6 +134,39 @@
             </div>
 
             <div class="project-section">
+                <h4>Visual Network Topology</h4>
+                <pre>
+                                 [ WAN / ISP Router ]
+                                          │
+                                    192.168.10.1/24
+                                          │
+                          ┌───────────────┴───────────────┐
+                          │   Physical NIC (eth0)         │
+                          └───────────────┬───────────────┘
+                                          │
+                      ┌───────────────────┴───────────────────┐
+                      │   Proxmox VE Host (Dell OptiPlex)    │
+                      │   Host Management IP: 192.168.10.x   │
+                      └───────────────────┬───────────────────┘
+                                          │
+                    ┌─────────────────────┴─────────────────────┐
+                    │  Virtual Bridge 0 (vmbr0) - LAN / Mgmt    │
+                    └───────┬───────────────────────────┬───────┘
+                            │                           │
+           ┌────────────────┴──────────────┐   ┌────────┴──────────────────────┐
+           │ LXC: Pi-hole DNS Sinkhole     │   │ VM: Ubuntu Server (Template)  │
+           │ IP: 192.168.10.53             │   │ Static IP / DHCP              │
+           │ Port: 53 (DNS), 80 (Web UI)   │   │ Services: Docker, Local LLM   │
+           └───────────────────────────────┘   └───────────────────────────────┘
+                                                        │
+                                       ┌────────────────┴──────────────┐
+                                       │ VM: Windows Server Lab        │
+                                       │ Services: Active Directory,   │
+                                       │ Domain Controller, DNS, DHCP  │
+                                       └───────────────────────────────┘</pre>
+            </div>
+
+            <div class="project-section">
                 <h4>Automation Code Snippet</h4>
                 <pre>
 #!/bin/bash
@@ -153,64 +185,11 @@ echo "Template $VM_ID ready."</pre>
             </div>
         </div>
     </div>
-<--! Visual Topology Diagram Layout -->
-    <div class="project-card">
-                                 [ WAN / ISP Router ]
-                                         │
-                                   192.168.10.1/24
-                                         │
-                         ┌───────────────┴───────────────┐
-                         │   Physical NIC (eth0)         │
-                         └───────────────┬───────────────┘
-                                         │
-                     ┌───────────────────┴───────────────────┐
-                     │   Proxmox VE Host (Dell OptiPlex)    │
-                     │   Host Management IP: 192.168.10.x   │
-                     └───────────────────┬───────────────────┘
-                                         │
-                   ┌─────────────────────┴─────────────────────┐
-                   │  Virtual Bridge 0 (vmbr0) - LAN / Mgmt    │
-                   └───────┬───────────────────────────┬───────┘
-                           │                           │
-          ┌────────────────┴──────────────┐   ┌────────┴──────────────────────┐
-          │ LXC: Pi-hole DNS Sinkhole     │   │ VM: Ubuntu Server (Template)  │
-          │ IP: 192.168.10.53             │   │ Static IP / DHCP              │
-          │ Port: 53 (DNS), 80 (Web UI)   │   │ Services: Docker, Local LLM   │
-          └───────────────────────────────┘   └───────────────────────────────┘
-                                                       │
-                                      ┌────────────────┴──────────────┐
-                                      │ VM: Windows Server Lab        │
-                                      │ Services: Active Directory,   │
-                                      │ Domain Controller, DNS, DHCP  │
-                                      └───────────────────────────────┘
-    </div>
 
-    <div class="image-grid">
-                <div class="image-card">
-                    <img src="chromebook-hardware.jpg" alt="Dell Chromebook Bench Setup">
-                    <div class="caption">Firmware flashing & write-protect screw removal</div>
-                </div>
-                <div class="image-card">
-                    <img src="chromebook-fastfetch.png" alt="Fastfetch terminal screenshot on Dell Chromebook">
-                    <div class="caption">Native Linux OS verification via Fastfetch</div>
-                </div>
-            </div>
-
-<div class="image-grid">
-                <div class="image-card">
-                    <img src="toshiba-teardown.jpg" alt="Toshiba A665 Teardown">
-                    <div class="caption">Motherboard overhaul & thermal repaste</div>
-                </div>
-                <div class="image-card">
-                    <img src="toshiba-neofetch.png" alt="Neofetch terminal screenshot on Toshiba Satellite">
-                    <div class="caption">System restoration verified via Neofetch</div>
-                </div>
-            </div>
-
-    <!-- Project 4: Dell Chromebook 11 3180 Linux Transformation -->
+    <!-- Project 3: Dell Chromebook 11 3180 Linux Transformation -->
     <div class="project-card">
         <div class="project-header">
-            <h2 class="project-title">4. Dell Chromebook 11 3180 — Coreboot/SeaBIOS Linux Conversion</h2>
+            <h2 class="project-title">3. Dell Chromebook 11 3180 — Coreboot/SeaBIOS Linux Conversion</h2>
             <div class="tags">
                 <span class="tag">Linux OS</span>
                 <span class="tag">Firmware Flashing</span>
@@ -225,12 +204,12 @@ echo "Template $VM_ID ready."</pre>
 
             <div class="image-grid">
                 <div class="image-card">
-                    <img src="chromebook-bench.jpg" alt="Dell Chromebook Bench Setup">
+                    <img src="chromebook-hardware.jpg" alt="Dell Chromebook Bench Setup">
                     <div class="caption">Firmware flashing & write-protect screw removal</div>
                 </div>
                 <div class="image-card">
-                    <img src="chromebook-linux.jpg" alt="Linux Running on Dell Chromebook">
-                    <div class="caption">Custom Linux desktop environment booted & verified</div>
+                    <img src="chromebook-fastfetch.png" alt="Fastfetch terminal screenshot on Dell Chromebook">
+                    <div class="caption">Native Linux OS verification via Fastfetch</div>
                 </div>
             </div>
 
@@ -246,10 +225,10 @@ echo "Template $VM_ID ready."</pre>
         </div>
     </div>
 
-    <!-- Project 5: Toshiba Satellite A665 Diagnostics & Overhaul -->
+    <!-- Project 4: Toshiba Satellite A665 Diagnostics & Overhaul -->
     <div class="project-card">
         <div class="project-header">
-            <h2 class="project-title">5. Toshiba Satellite A665 System Restoration & Diagnostics</h2>
+            <h2 class="project-title">4. Toshiba Satellite A665 System Restoration & Diagnostics</h2>
             <div class="tags">
                 <span class="tag">Laptop Diagnostics</span>
                 <span class="tag">Thermal Management</span>
@@ -265,7 +244,11 @@ echo "Template $VM_ID ready."</pre>
             <div class="image-grid">
                 <div class="image-card">
                     <img src="toshiba-teardown.jpg" alt="Toshiba A665 Teardown">
-                    <div class="caption">Motherboard cleaning, thermal paste replacement & fan overhaul</div>
+                    <div class="caption">Motherboard overhaul & thermal repaste</div>
+                </div>
+                <div class="image-card">
+                    <img src="toshiba-neofetch.png" alt="Neofetch terminal screenshot on Toshiba Satellite">
+                    <div class="caption">System restoration verified via Neofetch</div>
                 </div>
             </div>
 
@@ -281,10 +264,10 @@ echo "Template $VM_ID ready."</pre>
         </div>
     </div>
 
-    <!-- Project 6: Custom ESP32 Microcontroller Modifications -->
+    <!-- Project 5: Custom ESP32 Microcontroller Modifications -->
     <div class="project-card">
         <div class="project-header">
-            <h2 class="project-title">6. Custom ESP32 / ESP32-CAM Embedded Hardware Projects</h2>
+            <h2 class="project-title">5. Custom ESP32 / ESP32-CAM Embedded Hardware Projects</h2>
             <div class="tags">
                 <span class="tag">IoT / Microcontrollers</span>
                 <span class="tag">ESP32</span>
@@ -306,33 +289,7 @@ echo "Template $VM_ID ready."</pre>
             </div>
 
             <div class="project-section">
-                <h4>Code Modification & Optimization Highlights</h4>
-                <pre>
-* Streamlined HTTP video stream buffer allocation to prevent ESP32 memory panics.
-* Implemented static IP binding and Wi-Fi reconnect loops for headless 24/7 reliability.
-* Configured local authentication headers to secure video feeds on isolated lab subnets.
-* Integrated GPIO relay control routines triggered via REST API endpoints.</pre>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Project 3: ESP32 Security Node -->
-    <div class="project-card">
-        <div class="project-header">
-            <h2 class="project-title">3. ESP32 Embedded Web Monitoring Node</h2>
-            <div class="tags">
-                <span class="tag">IoT</span>
-                <span class="tag">Embedded C++</span>
-                <span class="tag">Microcontrollers</span>
-            </div>
-        </div>
-        <div class="project-body">
-            <div class="project-section">
-                <h4>Overview & Problem</h4>
-                <p>Built an isolated ESP32 embedded web server to monitor local hardware state, report status telemetry over HTTP, and trigger localized hardware resets/relays.</p>
-            </div>
-            <div class="project-section">
-                <h4>Embedded C++ Code Snippet</h4>
+                <h4>Code Modification & Embedded C++ Snippet</h4>
                 <pre>
 #include &lt;WiFi.h&gt;
 #include &lt;WebServer.h&gt;
