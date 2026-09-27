@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mijail Dominguez | IT & Electronics Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --border: #334155;
+            --code-bg: #0f172a;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; padding: 2rem 1rem; }
+        .container { max-width: 900px; margin: 0 auto; }
+        
+        /* Header */
+        header { margin-bottom: 3rem; border-bottom: 1px solid var(--border); padding-bottom: 2rem; }
+        h1 { font-size: 2.2rem; color: var(--accent); margin-bottom: 0.5rem; }
+        .subtitle { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1rem; }
+        .contact-links a { color: var(--accent); text-decoration: none; margin-right: 1.5rem; font-weight: 500; }
+        .contact-links a:hover { text-decoration: underline; }
+
+        /* Project Cards */
+        .project-card { background-color: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 2.5rem; overflow: hidden; }
+        .project-header { padding: 1.5rem; border-bottom: 1px solid var(--border); }
+        .project-title { font-size: 1.4rem; color: var(--text-main); margin-bottom: 0.5rem; }
+        .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem; }
+        .tag { background-color: rgba(56, 189, 248, 0.1); color: var(--accent); font-size: 0.8rem; padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: 600; }
+        
+        .project-body { padding: 1.5rem; }
+        .project-section { margin-bottom: 1.2rem; }
+        .project-section h4 { color: var(--accent); margin-bottom: 0.3rem; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        
+        /* Images Grid */
+        .image-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1.2rem 0; }
+        .image-card { background: var(--bg-color); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+        .image-card img { width: 100%; height: 180px; object-fit: cover; display: block; }
+        .image-card .caption { font-size: 0.8rem; color: var(--text-muted); padding: 0.5rem; text-align: center; }
+
+        /* Code Blocks */
+        pre { background-color: var(--code-bg); border: 1px solid var(--border); padding: 1rem; border-radius: 6px; overflow-x: auto; font-family: "Courier New", Courier, monospace; font-size: 0.85rem; color: #a5f3fc; }
+        
+        footer { text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Header / About Section -->
+    <header>
+        <h1>Mijail Dominguez</h1>
+        <p class="subtitle">IT Support Specialist | Systems Administrator | Component-Level Electronics Technician</p>
+        <p>Combining hardware diagnostic precision with Linux systems administration, virtualization, and network security. Operating <strong>Raymer Computer Repair</strong> and conducting field equipment maintenance.</p>
+        <br>
+        <div class="contact-links">
+            <a href="mailto:your-email@example.com">Email Me</a>
+            <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+            <a href="https://github.com/yourusername" target="_blank">GitHub Profile</a>
+        </div>
+    </header>
+
+    <!-- Project 1: Board-Level Repair -->
+    <div class="project-card">
+        <div class="project-header">
+            <h2 class="project-title">1. Industrial Control PCB Trace Repair & Diagnostics</h2>
+            <div class="tags">
+                <span class="tag">Hardware Repair</span>
+                <span class="tag">Micro-Soldering</span>
+                <span class="tag">Circuit Diagnostics</span>
+            </div>
+        </div>
+        <div class="project-body">
+            <div class="project-section">
+                <h4>Overview & Problem</h4>
+                <p>Diagnosed and restored an industrial control board suffering from damaged power delivery traces and passive component failure without access to manufacturer schematics.</p>
+            </div>
+            
+            <!-- Photo Grid -->
+            <div class="image-grid">
+                <div class="image-card">
+                    <img src="https://via.placeholder.com/400x250?text=Trace+Inspection" alt="Inspection">
+                    <div class="caption">Microscope inspection of damaged copper trace</div>
+                </div>
+                <div class="image-card">
+                    <img src="https://via.placeholder.com/400x250?text=Jumper+Repair" alt="Soldering">
+                    <div class="caption">30 AWG jumper wire installed & UV sealed</div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h4>Execution & Verification Workflow</h4>
+                <pre>
+[Bench Diagnostic Verification]
+1. Visual Inspection: Located shorted SMD capacitor and fractured trace.
+2. Resistance Check: VCC to GND = 1.2 Ohms (Short detected).
+3. Post-Component Removal: VCC to GND > 500k Ohms (Normal).
+4. Trace Reconstruction: Soldered 30 AWG jumper; applied UV mask.
+5. Load Test: 12V DC via bench supply; stable 120mA draw (PASS).</pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project 2: Proxmox Homelab -->
+    <div class="project-card">
+        <div class="project-header">
+            <h2 class="project-title">2. Proxmox VE Homelab & Automated VM Deployment</h2>
+            <div class="tags">
+                <span class="tag">Systems Admin</span>
+                <span class="tag">Proxmox VE</span>
+                <span class="tag">Linux / Bash</span>
+                <span class="tag">Pi-hole</span>
+            </div>
+        </div>
+        <div class="project-body">
+            <div class="project-section">
+                <h4>Overview & Problem</h4>
+                <p>Configured a dedicated Proxmox VE hypervisor node to host virtualized lab environments, automated Linux VM provisioning via Cloud-Init scripts, and deployed network-wide DNS filtering.</p>
+            </div>
+
+            <div class="image-grid">
+                <div class="image-card">
+                    <img src="https://via.placeholder.com/400x250?text=Proxmox+Dashboard" alt="Proxmox">
+                    <div class="caption">Proxmox VE cluster status & active VM nodes</div>
+                </div>
+                <div class="image-card">
+                    <img src="https://via.placeholder.com/400x250?text=Pi-hole+Logs" alt="Pi-hole">
+                    <div class="caption">Pi-hole query log & DNS sinkhole metrics</div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h4>Automation Code Snippet</h4>
+                <pre>
+#!/bin/bash
+# Proxmox Cloud-Init VM Provisioning Template
+VM_ID=9000
+STORAGE="local-lvm"
+ISO_NAME="ubuntu-22.04-minimal.img"
+
+qm create $VM_ID --memory 2048 --core 2 --name ubuntu-cloud-template --net0 virtio,bridge=vmbr0
+qm importdisk $VM_ID $ISO_NAME $STORAGE
+qm set $VM_ID --scsihw virtio-scsi-pci --scsi0 $STORAGE:vm-$VM_ID-disk-0
+qm set $VM_ID --ide2 $STORAGE:cloudinit
+qm set $VM_ID --boot c --bootdisk scsi0
+qm template $VM_ID
+echo "Template $VM_ID ready."</pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project 3: ESP32 Security Node -->
+    <div class="project-card">
+        <div class="project-header">
+            <h2 class="project-title">3. ESP32 Embedded Web Monitoring Node</h2>
+            <div class="tags">
+                <span class="tag">IoT</span>
+                <span class="tag">Embedded C++</span>
+                <span class="tag">Microcontrollers</span>
+            </div>
+        </div>
+        <div class="project-body">
+            <div class="project-section">
+                <h4>Overview & Problem</h4>
+                <p>Built an isolated ESP32 embedded web server to monitor local hardware state, report status telemetry over HTTP, and trigger localized hardware resets/relays.</p>
+            </div>
+            <div class="project-section">
+                <h4>Embedded C++ Code Snippet</h4>
+                <pre>
+#include &lt;WiFi.h&gt;
+#include &lt;WebServer.h&gt;
+
+const char* ssid = "LAB_NET_SECURE";
+const char* password = "LOCAL_PASSWORD";
+WebServer server(80);
+
+void setup() {
+  pinMode(2, OUTPUT);
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) { delay(500); }
+  
+  server.on("/", []() {
+    server.send(200, "text/html", "&lt;h1&gt;ESP32 Security Node ONLINE&lt;/h1&gt;");
+  });
+  server.begin();
+}
+
+void loop() { server.handleClient(); }</pre>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Mijail Dominguez | Raymer Computer Repair</p>
+    </footer>
+</div>
+
+</body>
+</html>
